@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainLock</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>BrainLock</h1>
+      <div id="status-indicator" class="status-idle"></div>
+    </header>
+
+    <main>
+      <div id="timer-section" class="hidden">
+        <div class="timer-display">
+          <span id="time-remaining">00:00:00</span>
+        </div>
+        <button id="stop-btn" class="btn btn-danger">Stop Session</button>
+        <p id="strict-mode-msg" class="hidden"
+          style="text-align: center; color: #a0a0a0; font-size: 0.8rem; margin-top: 8px;">Strict Mode Active: Cannot
+          stop.</p>
+      </div>
+
+      <div id="setup-section">
+        <div class="input-group">
+          <input type="text" id="site-input" placeholder="Add website (e.g. youtube.com)">
+          <button id="add-btn" class="btn btn-icon" aria-label="Add site">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+
+        <ul id="site-list" class="site-list">
+          <!-- Sites will be added here dynamically -->
+        </ul>
+
+        <div class="duration-selector">
+          <label>Duration:</label>
+          <div class="duration-options">
+            <button class="duration-btn" data-time="15">15m</button>
+            <button class="duration-btn" data-time="30">30m</button>
+            <button class="duration-btn selected" data-time="60">1h</button>
+            <button class="duration-btn" data-time="120">2h</button>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+          <input type="checkbox" id="strict-mode-toggle">
+          <label for="strict-mode-toggle" style="font-size: 0.9rem; color: #a0a0a0;">Strict Mode (Cannot stop
+            timer)</label>
+        </div>
+
+        <button id="start-btn" class="btn btn-primary btn-block">Start BrainLock</button>
+      </div>
+    </main>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>
